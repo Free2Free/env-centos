@@ -19,7 +19,7 @@ Welcome to CentOS 7 !
 EOF
 
 # ——————————————————————————shell快捷键——————————————————————————
-cat <<EOF> ~/.profile
+cat <<EOF> ~/.bashrc
 alias cls="clear"
 alias ll='ls -hl --time-style "+%Y/%m/%d %H:%M"'
 EOF
