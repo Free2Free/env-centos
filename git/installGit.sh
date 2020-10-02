@@ -1,6 +1,4 @@
 #! bin/bash
-yum install zlib-devel
-yum install perl
 # 下载自定义Java安装包
 wget -P /usr/local/src -N http://cdn.ai-brain.cn/bin/git/git.tar.gz
 # 解压文件

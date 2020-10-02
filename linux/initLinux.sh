@@ -11,14 +11,19 @@ systemctl disable firewalld
 swapoff -a
 
 # ——————————————————————————登陆欢迎语——————————————————————————
-if [ `grep "Welcome to Linux" /etc/motd`  -ne '0' ]
+if [ `grep -c "Welcome to Linux" /etc/motd` -ne '0' ];
 then
-	echo -e '\nWelcome to Linux !\n' >> /etc/motd
+	echo -e '\nWelcome to Linux !\n' >> /etc/motd;
 fi
 
 # ——————————————————————————shell快捷键——————————————————————————
-if [ `grep -c "alias cls=" /etc/bashrc`  -ne '0' ]
+if [ `grep -c "^alias cls="` /etc/bashrc -ne '0' ];
 then
-	echo 'alias cls="clear"' >> /etc/bashrc
+	echo 'alias cls="clear"' >> /etc/bashrc;
+fi
+
+if [ `grep -c "^alias ll="`  -ne '0' ];
+then
+	echo alias ll='ls -hl --time-style "+%Y/%m/%d %H:%M"' >> /etc/bashrc
 fi
 source /etc/bashrc
