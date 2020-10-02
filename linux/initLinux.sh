@@ -11,22 +11,33 @@ systemctl disable firewalld
 swapoff -a
 
 # ——————————————————————————登陆欢迎语——————————————————————————
-if [ `grep -c "Welcome to Linux" /etc/motd` -ne '0' ];
-then
-	echo -e '\nWelcome to Linux !\n' >> /etc/motd
-fi
+# ——————————————————————————shell快捷键——————————————————————————
+cat <<EOF> /etc/motd
+
+Welcome to CentOS 7 !
+
+EOF
 
 # ——————————————————————————shell快捷键——————————————————————————
-if [ `grep -c "^alias cls=" /etc/bashrc` -ne '0' ];
-then
-	echo 'alias cls="clear"' >> /etc/bashrc
-fi
+cat <<EOF> ~/.profile
+alias cls="clear"
+alias ll='ls -hl --time-style "+%Y/%m/%d %H:%M"'
+EOF
 
-if [ `grep -c "^alias ll=" /etc/bashrc`  -ne '0' ];
-then
-	echo -e alias ll=\'ls -hl --time-style "+%Y/%m/%d %H:%M"\' >> /etc/bashrc
-fi
-source /etc/bashrc
+# if [ `grep -c "^alias cls=" /etc/bashrc` -ne '0' ];then
+# 	echo 'alias cls="clear"' >> /etc/bashrc
+# fi
+
+# if [ `grep -c "^alias ll=" /etc/bashrc`  -ne '0' ];then
+# 	echo -e alias ll=\'ls -hl --time-style "+%Y/%m/%d %H:%M"\' >> /etc/bashrc
+# fi
+
+# 设置本地变量
+cat <<EOF> /etc/locale.conf
+LC_ALL=en_US.utf8 
+LC_CTYPE=en_US.utf8 
+LANG=en_US.utf8
+EOF
 
 # s设置时区
 ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
