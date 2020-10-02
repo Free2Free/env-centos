@@ -17,12 +17,12 @@ then
 fi
 
 # ——————————————————————————shell快捷键——————————————————————————
-if [ `grep -c "^alias cls="` /etc/bashrc -ne '0' ];
+if [ `grep -c "^alias cls=" /etc/bashrc` -ne '0' ];
 then
 	echo 'alias cls="clear"' >> /etc/bashrc;
 fi
 
-if [ `grep -c "^alias ll="`  -ne '0' ];
+if [ `grep -c "^alias ll=" /etc/bashrc`  -ne '0' ];
 then
 	echo alias ll='ls -hl --time-style "+%Y/%m/%d %H:%M"' >> /etc/bashrc
 fi
