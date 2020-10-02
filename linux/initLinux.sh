@@ -1,6 +1,6 @@
 #! bin/bash
 # 升级内核版本
-yum update kernel -y 
+# yum update kernel -y 
 # ——————————————————————————防火墙——————————————————————————
 # 关闭防火墙
 systemctl stop firewalld
@@ -8,7 +8,7 @@ systemctl stop firewalld
 systemctl disable firewalld
 
 # ——————————————————————————虚拟内存——————————————————————————
-# swapoff -a
+swapoff -a
 
 # ——————————————————————————登陆欢迎语——————————————————————————
 if [ `grep -c "Welcome to Linux" /etc/motd` -ne '0' ];
