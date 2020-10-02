@@ -24,6 +24,9 @@ fi
 
 if [ `grep -c "^alias ll=" /etc/bashrc`  -ne '0' ];
 then
-	echo alias ll='ls -hl --time-style "+%Y/%m/%d %H:%M"' >> /etc/bashrc
+	echo -e alias ll=\'ls -hl --time-style "+%Y/%m/%d %H:%M"\' >> /etc/bashrc
 fi
 source /etc/bashrc
+
+# s设置时区
+ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
