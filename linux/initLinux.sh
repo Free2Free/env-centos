@@ -1,4 +1,6 @@
 #! bin/bash
+# 升级内核版本
+yum update kernel -y 
 # ——————————————————————————防火墙——————————————————————————
 # 关闭防火墙
 systemctl stop firewalld
