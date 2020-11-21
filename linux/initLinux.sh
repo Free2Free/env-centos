@@ -24,15 +24,17 @@ Welcome to CentOS 7 !
 
 EOF
 
-# shell提示符前缀
-cat <<EOF>> /etc/bashrc
-PS1="[\u@\h \W]\\$ "
-EOF
-
 # ——————————————————————————shell快捷键——————————————————————————
+# 将个人shell配置重写，如果全局文件存在，则引入全局配置
 cat <<EOF> ~/.bashrc
 alias cls="clear"
 alias ll='ls -hl --time-style "+%Y/%m/%d %H:%M"'
+
+PS1="[\u@\h \W]\\$ "
+
+if [ -f /etc/bashrc ]; then
+  . /etc/bashrc
+fi
 EOF
 
 
