@@ -2,7 +2,7 @@
 # 下载自定义Java安装包
 wget -P /usr/local/src -N http://cdn.ai-brain.cn/bin/redis/redis.tar.gz
 # 解压文件
-tar -zxvf --no-same-owner /usr/local/src/redis.tar.gz -C /usr/local
+tar --no-same-owner -zxvf /usr/local/src/redis.tar.gz -C /usr/local
 
 # 配置环境变量
 grep "^export REDIS_HOME" /etc/profile;

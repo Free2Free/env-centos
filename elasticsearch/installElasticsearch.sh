@@ -2,7 +2,7 @@
 # 下载自定义Java安装包
 wget -P /usr/local/src -N http://cdn.ai-brain.cn/bin/elasticsearch/elasticsearch.tar.gz
 # 解压文件
-tar -zxvf /usr/local/src/elasticsearch.tar.gz -C /usr/local
+tar --no-same-owner -zxvf /usr/local/src/elasticsearch.tar.gz -C /usr/local
 
 grep "^node.name" /usr/local/elasticsearch/config/elasticsearch.yml;
 if (( $? > 0 ))
