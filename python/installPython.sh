@@ -2,7 +2,7 @@
 # 下载自定义Java安装包
 wget -P /usr/local/src -N http://cdn.ai-brain.cn/bin/python/python.tar.gz
 # 解压文件
-tar -zxvf /usr/local/src/python.tar.gz -C /usr/local
+tar -zxvf --no-same-owner /usr/local/src/python.tar.gz -C /usr/local
 
 # 配置环境变量
 grep "^export PYTHON_HOME" /etc/profile;
