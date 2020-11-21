@@ -53,7 +53,4 @@ set autochdir               " 自动切换当前目录为当前文件所在的�
 
 inoremap { {<CR>}<ESC>O<Tab>
 
-if [ -f /etc/vimrc ]; then
-  . /etc/vimrc
-fi
 EOF
