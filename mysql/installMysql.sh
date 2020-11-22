@@ -31,15 +31,13 @@ tmp_passwd=`cat /var/log/mysqld.log  | grep 'for root@localhost:' | awk '{print 
 
 echo $tmp_passwd
 # # 用root账户登陆
-# mysql -u root -p${tmp_passwd}
+mysql -u root -p${tmp_passwd}
 
-# # 修改Mysql root账户密码
-# alter user 'root'@'localhost' identified by 'root.123.456';
-
-# # 配置root账户远程登陆
-# use mysql;
-# update user set host = '%' where user ='root';
-# flush privileges;
-
-# # 退出Mysql
-# quit
+set global validate_password_policy=0;
+alter user 'root'@'localhost' identified by 'root.123.456';
+use mysql;
+update user set host = '%' where user ='root';
+flush privileges;
+quit
+# 清屏
+clear
