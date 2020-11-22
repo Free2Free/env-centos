@@ -39,7 +39,7 @@ quit
 EOF
 
 # 用root账户登陆
-mysql -u root -p${tmp_passwd} < ~/.tmp.sql
+mysql --connect-expired-password -u root -p${tmp_passwd} < ~/.tmp.sql
 
 rm -rf ~/.tmp.sql
 
