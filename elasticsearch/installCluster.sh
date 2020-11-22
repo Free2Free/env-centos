@@ -14,6 +14,7 @@ cat <<EOF> /etc/hosts
 192.168.199.116 node02
 192.168.199.117 node03
 EOF
+fTkBGENLQxeDJxTlqIO5WJXwWVsgXmSrtC-DrHPg
 
 # 刷新环境变量
 source /etc/profile

@@ -36,6 +36,11 @@ then
 	echo '* hard nofile 65536' > /etc/security/limits.conf
 fi
 
+# 创建ES专属用户
+useradd -g root es
+echo "es.123.456"| passwd es --stdin
+chown -R es:root ${ES_HOME}
+
 # 刷新环境变量
 source /etc/profile
 
