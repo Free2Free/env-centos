@@ -12,3 +12,6 @@ then
 	echo 'export PATH=${PYTHON_HOME}/bin:$PATH' >> /etc/profile
 	source /etc/profile
 fi
+
+# 刷新环境变量
+source /etc/profile

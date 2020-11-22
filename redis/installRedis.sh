@@ -12,3 +12,6 @@ echo 'export REDIS_HOME=/usr/local/redis' >> /etc/profile
 echo 'export PATH=${REDIS_HOME}/bin:$PATH' >> /etc/profile
 source /etc/profile
 fi
+
+# 刷新环境变量
+source /etc/profile

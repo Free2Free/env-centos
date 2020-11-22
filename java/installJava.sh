@@ -10,4 +10,5 @@ echo 'export JRE_HOME=${JAVA_HOME}/jre' >> /etc/profile
 echo 'export CLASSPATH=.:${JAVA_HOME}/lib:${JRE_HOME}/lib' >> /etc/profile
 echo 'export PATH=${JAVA_HOME}/bin:$PATH' >> /etc/profile
 
+# 刷新环境变量
 source /etc/profile

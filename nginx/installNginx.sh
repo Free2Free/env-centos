@@ -9,6 +9,9 @@ grep "^export NGINX_HOME" /etc/profile;
 if (( $? > 0 ))
 then
 echo 'export NGINX_HOME=/usr/local/nginx' >> /etc/profile
-echo 'export PATH=${NGINX_HOME}/bin:$PATH' >> /etc/profile
+echo 'export PATH=${NGINX_HOME}/sbin:$PATH' >> /etc/profile
 source /etc/profile
 fi
+
+# 刷新环境变量
+source /etc/profile

@@ -12,3 +12,6 @@ echo 'export KAFKA_HOME=/usr/local/kafka' >> /etc/profile
 echo 'export PATH=${KAFKA_HOME}/bin:$PATH' >> /etc/profile
 source /etc/profile
 fi
+
+# 刷新环境变量
+source /etc/profile

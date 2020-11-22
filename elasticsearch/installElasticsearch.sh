@@ -36,6 +36,9 @@ then
 	source /etc/security/limits.conf
 fi
 
+# 刷新环境变量
+source /etc/profile
+
 
 
 # 此部分是在启动集群时使用

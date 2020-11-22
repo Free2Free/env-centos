@@ -1,6 +1,6 @@
 #! bin/bash
 
-# 升级内核版本
+# 升级内核版本(-y表示自动安装不需要手动确认)
 yum update kernel -y 
 
 # 关闭防火墙

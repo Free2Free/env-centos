@@ -15,7 +15,7 @@ wget http://repo.mysql.com/mysql57-community-release-el7-8.noarch.rpm
 # 安装
 rpm -ivh mysql57-community-release-el7-8.noarch.rpm
 
-yum install mysql-server
+yum install mysql-server -y
 
 # 删除安装文件
 rpm -ivh mysql57-community-release-el7-8.noarch.rpm
