@@ -4,6 +4,7 @@ wget -P /usr/local/src -N http://cdn.ai-brain.cn/bin/elasticsearch/elasticsearch
 # 解压文件
 tar --no-same-owner -zxvf /usr/local/src/elasticsearch.tar.gz -C /usr/local
 
+# 用主机名做节点名称
 grep "^node.name" /usr/local/elasticsearch/config/elasticsearch.yml;
 if (( $? > 0 ))
 then
@@ -42,10 +43,10 @@ source /etc/profile
 
 
 # 此部分是在启动集群时使用
-# cat <<EOF>> /usr/local/elasticsearch/config/elasticsearch.yml
-# cluster.name: es-cluster
-# node.master: true
-# node.data: true
-# discovery.zen.ping.unicast.hosts: ["192.168.199.116", "192.168.199.117","192.168.199.118"]
-# discovery.zen.minimum_master_nodes:  2
-# EOF
+cat <<EOF>> /usr/local/elasticsearch/config/elasticsearch.yml
+cluster.name: es-cluster
+node.master: true
+node.data: true
+discovery.zen.ping.unicast.hosts: [${node01}, ${node02},${node03}]
+discovery.zen.minimum_master_nodes:  2
+EOF
