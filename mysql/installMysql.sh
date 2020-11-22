@@ -23,21 +23,27 @@ rpm -ivh mysql57-community-release-el7-8.noarch.rpm
 # 启动Mysql服务
 systemctl start mysqld
 
-# 清屏
-clear
-
 # 过滤临时文件中的登陆密码
 tmp_passwd=`cat /var/log/mysqld.log  | grep 'for root@localhost:' | awk '{print $11}'`
 
 echo $tmp_passwd
-# # 用root账户登陆
-mysql -u root -p${tmp_passwd}
 
+
+cat <<EOF> ~/.tmp.sql
 set global validate_password_policy=0;
 alter user 'root'@'localhost' identified by 'root.123.456';
 use mysql;
 update user set host = '%' where user ='root';
 flush privileges;
 quit
+EOF
+
+# 用root账户登陆
+mysql -u root -p${tmp_passwd} < ~/.tmp.sql
+
+rm -rf ~/.tmp.sql
+
+
+
 # 清屏
-clear
+# clear
