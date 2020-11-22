@@ -13,9 +13,10 @@ swapoff -a
 
 # 设置时区
 ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+ln -s /usr/bin/systemctl /usr/local/bin/sctl
 
 # 安装常用工具
-yum install -y wget vim net-tools
+yum install -y wget vim net-tools bash-completion
 
 # 登陆欢迎语
 cat <<EOF> /etc/motd
