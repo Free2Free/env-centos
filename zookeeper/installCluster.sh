@@ -23,8 +23,8 @@ echo ${HOSTNAME} | grep -Po '[1-9]+' > ${ZK_HOME}/data/myid
 
 
 cat <<EOF>> ${ZK_HOME}/conf/zoo.cfg
-# myid里面配置的字符串
-server.1=node01:2888:3888 
-server.2=node02:2888:3888 
-server.3=node03:2888:3888 
+# myid里面配置的字符串(端口后面不能有空格)
+server.1=node01:2888:3888
+server.2=node02:2888:3888
+server.3=node03:2888:3888
 EOF
