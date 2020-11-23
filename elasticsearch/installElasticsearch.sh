@@ -8,7 +8,7 @@ tar --no-same-owner -zxvf /usr/local/src/elasticsearch.tar.gz -C /usr/local
 grep "^node.name" /usr/local/elasticsearch/config/elasticsearch.yml;
 if (( $? > 0 ))
 then
-	echo 'node.name: $HOSTNAME' >> /usr/local/elasticsearch/config/elasticsearch.yml
+	echo 'node.name: ${HOSTNAME}' >> /usr/local/elasticsearch/config/elasticsearch.yml
 fi
 
 # 配置环境变量
