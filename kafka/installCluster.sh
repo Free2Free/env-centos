@@ -11,7 +11,7 @@ EOF
 
 # 刷新环境变量
 source /etc/profile
-# 将主机名作为myid的值
+# 将主机名作为broker id的值
 tmp=`echo ${HOSTNAME} | grep -Po '[1-9]+'`
 
 

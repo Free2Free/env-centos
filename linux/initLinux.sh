@@ -33,7 +33,6 @@ export NET_HOME=/etc/sysconfig/network-scripts
 cat <<EOF> ~/.bashrc
 alias cls="clear"
 alias ll='ls -hl --time-style "+%Y/%m/%d %H:%M"'
-set show-all-if-ambiguous on
 
 PS1="[\u@\h \W]\\$ "
 
@@ -41,6 +40,12 @@ if [ -f /etc/bashrc ]; then
   . /etc/bashrc
 fi
 EOF
+
+cat <<EOF> ~/.inputrc
+set show-all-if-ambiguous on
+set completion-ignore-case on
+EOF
+
 
 
 # 设置本地变量（shell脚本中文乱码、控制台输出中文乱码、vim中文乱码）
