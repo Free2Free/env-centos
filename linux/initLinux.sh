@@ -33,6 +33,7 @@ export NET_HOME=/etc/sysconfig/network-scripts
 cat <<EOF> ~/.bashrc
 alias cls="clear"
 alias ll='ls -hl --time-style "+%Y/%m/%d %H:%M"'
+set show-all-if-ambiguous on
 
 PS1="[\u@\h \W]\\$ "
 

@@ -1,18 +1,18 @@
 #! bin/bash
 # 新增集群主机
 cat <<EOF> /etc/profile.d/es.sh
-export node01=192.168.199.115
-export node02=192.168.199.116
-export node03=192.168.199.117
+export node01=192.168.199.165
+export node02=192.168.199.166
+export node03=192.168.199.167
 EOF
 
 # 新增集群主机
 cat <<EOF> /etc/hosts
 127.0.0.1   localhost
 ::1         localhost
-192.168.199.115 node01
-192.168.199.116 node02
-192.168.199.117 node03
+192.168.199.165 node01
+192.168.199.166 node02
+192.168.199.167 node03
 EOF
 
 
