@@ -36,7 +36,7 @@ then
 	echo '* hard nofile 65536' > /etc/security/limits.conf
 fi
 
-# 创建ES专属用户
+# 创建ES专属用户(此语句可重复执行)
 useradd -g root es
 echo "es.123.456"| passwd es --stdin
 chown -R es:root ${ES_HOME}
