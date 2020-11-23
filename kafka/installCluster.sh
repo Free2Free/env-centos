@@ -16,6 +16,7 @@ tmp=`echo ${HOSTNAME} | grep -Po '[1-9]+'`
 
 
 cat <<EOF>> ${KAFKA_HOME}/config/server.properties
+host.name: ${HOSTNAME}
 broker.id=${tmp}
 zookeeper.connect=node01:2181,node02:2181,node03:2181
 EOF
