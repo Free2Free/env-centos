@@ -1,10 +1,4 @@
 #! bin/bash
-# 新增集群主机
-cat <<EOF> /etc/profile.d/es.sh
-export node01=192.168.199.165
-export node02=192.168.199.166
-export node03=192.168.199.167
-EOF
 
 # 新增集群主机
 cat <<EOF> /etc/hosts
