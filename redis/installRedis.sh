@@ -16,5 +16,9 @@ fi
 #删除残余日志(.log)和数据库（.rdb）文件
 find $REDIS_HOME | grep '.*\.rdb$' | xargs rm -rf
 
+cat <<EOF>> ${REDIS_HOME}/conf/redis.conf
+daemonize yes
+EOF
+
 # 刷新环境变量
 source /etc/profile
