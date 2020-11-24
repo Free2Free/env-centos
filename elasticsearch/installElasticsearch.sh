@@ -41,6 +41,25 @@ useradd -g root es
 echo "es.123.456"| passwd es --stdin
 chown -R es:root ${ES_HOME}
 
+# 添加快捷启动脚本
+cat <<EOF> ${ES_HOME}/bin/startup.sh
+/usr/local/elasticsearch/bin/elasticsearch -d
+EOF
+
+# 添加快捷关闭脚本
+cat <<EOF> ${ES_HOME}/bin/shutdown.sh
+PID=$(ps -ef | grep elasticsearch | grep -v grep | awk '{ print $2 }')
+if [ -z "$PID" ]
+then
+    echo Application is already stopped
+else
+    kill -9 $PID
+fi
+EOF
+
+# 创建快捷软连接
+ln -sf ${ES_HOME}/bin/elasticsearch es
+
 # 刷新环境变量
 source /etc/profile
 
