@@ -16,6 +16,13 @@ fi
 #删除残余日志(.log)和数据库（.rdb）文件
 find $REDIS_HOME | grep '.*\.rdb$' | xargs rm -rf
 
+cat <<EOF> /etc/hosts
+127.0.0.1   localhost
+::1         localhost
+192.168.3.171 master
+192.168.3.172 slaver
+EOF
+
 cat <<EOF>> ${REDIS_HOME}/conf/redis.conf
 daemonize yes
 EOF
