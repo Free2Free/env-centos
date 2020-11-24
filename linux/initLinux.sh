@@ -41,9 +41,16 @@ if [ -f /etc/bashrc ]; then
 fi
 EOF
 
+# 修改tab键智能补齐
 cat <<EOF> ~/.inputrc
 set show-all-if-ambiguous on
 set completion-ignore-case on
+EOF
+
+# 用户退出ssh后执行清屏指令
+cat <<EOF> ~/.bash_logout 
+# ~/.bash_logout
+clear
 EOF
 
 
