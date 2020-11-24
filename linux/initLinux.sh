@@ -13,7 +13,9 @@ swapoff -a
 
 # 设置时区
 ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
-ln -s /usr/bin/systemctl /usr/local/bin/sctl
+
+# 添加常用命令缩略符
+ln -sf /usr/bin/systemctl /usr/local/bin/sctl
 
 # 安装常用工具
 yum install -y wget vim net-tools bash-completion lsof ntp
@@ -46,10 +48,11 @@ if [ -f /etc/bashrc ]; then
 fi
 EOF
 
-# 修改tab键智能补齐
+# 修改tab键智能补齐（按TAB可自由切换）
 cat <<EOF> ~/.inputrc
 set show-all-if-ambiguous on
 set completion-ignore-case on
+TAB: menu-complete
 EOF
 
 # 用户退出ssh后执行清屏指令
