@@ -13,5 +13,8 @@ echo 'export PATH=${REDIS_HOME}/bin:$PATH' >> /etc/profile
 source /etc/profile
 fi
 
+#删除残余日志(.log)和数据库（.rdb）文件
+find $REDIS_HOME | grep '.*\.rdb$' | xargs rm -rf
+
 # 刷新环境变量
 source /etc/profile

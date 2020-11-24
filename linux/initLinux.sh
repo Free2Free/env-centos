@@ -16,7 +16,7 @@ ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 ln -s /usr/bin/systemctl /usr/local/bin/sctl
 
 # 安装常用工具
-yum install -y wget vim net-tools bash-completion lsof
+yum install -y wget vim net-tools bash-completion lsof ntp
 
 # 登陆欢迎语
 cat <<EOF> /etc/motd
@@ -27,6 +27,11 @@ EOF
 
 #由于经常需要配置网关，因此将网络配置文件路径添加到环境变量中
 export NET_HOME=/etc/sysconfig/network-scripts
+
+# 同步服务器时间
+ntpdate -u cn.pool.ntp.org
+# 将时间写入硬件
+hwclock -w
 
 # ——————————————————————————shell快捷键——————————————————————————
 # 将个人shell配置重写，如果全局文件存在，则引入全局配置
