@@ -51,7 +51,7 @@ EOF
 # 修改tab键智能补齐（按TAB可自由切换）
 sed -i '/completion-ignore-case/d' /etc/bashrc
 sed -i '/menu-complete/d' /etc/bashrc
-cat <<EOF>> ~/.inputrc
+cat <<EOF>> /etc/bashrc
 set completion-ignore-case on
 TAB: menu-complete
 EOF
