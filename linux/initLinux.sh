@@ -49,9 +49,9 @@ alias grep='grep --color'
 EOF
 
 # 修改tab键智能补齐（按TAB可自由切换）
-sed -i '/completion-ignore-case/d' /etc/bashrc
-sed -i '/menu-complete/d' /etc/bashrc
-cat <<EOF>> /etc/bashrc
+sed -i '/completion-ignore-case/d' /etc/inputrc
+sed -i '/menu-complete/d' /etc/inputrc
+cat <<EOF>> /etc/inputrc
 set completion-ignore-case on
 TAB: menu-complete
 EOF
