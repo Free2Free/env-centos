@@ -5,13 +5,11 @@ wget -P /usr/local/src -N http://cdn.ai-brain.cn/bin/python/python.tar.gz
 tar --no-same-owner -zxvf /usr/local/src/python.tar.gz -C /usr/local
 
 # 配置环境变量
-grep "^export PYTHON_HOME" /etc/profile;
-if (( $? > 0 ))
-then
-	echo 'export PYTHON_HOME=/usr/local/python' >> /etc/profile
-	echo 'export PATH=${PYTHON_HOME}/bin:$PATH' >> /etc/profile
-	source /etc/profile
-fi
+sed -i '/PYTHON_HOME/d' /etc/profile
+echo 'export PYTHON_HOME=/usr/local/python' >> /etc/profile
+echo 'export PATH=${PYTHON_HOME}/bin:$PATH' >> /etc/profile
+source /etc/profile
+
 
 # 刷新环境变量
 source /etc/profile

@@ -1,4 +1,5 @@
 #! bin/bash
+source /etc/profile
 # 下载自定义Java安装包
 wget -P /usr/local/src -N http://cdn.ai-brain.cn/bin/elasticsearch/elasticsearch.tar.gz
 # 解压文件
@@ -12,13 +13,12 @@ then
 fi
 
 # 配置环境变量
-grep "^export ES_HOME" /etc/profile;
-if (( $? > 0 ))
-then
-	echo 'export ES_HOME=/usr/local/elasticsearch' >> /etc/profile
-	echo 'export PATH=${ES_HOME}/bin:$PATH' >> /etc/profile
-	source /etc/profile
-fi
+sed -i '/ES_HOME/d' /etc/profile
+echo 'export ES_HOME=/usr/local/elasticsearch' >> /etc/profile
+echo 'export PATH=${ES_HOME}/bin:$PATH' >> /etc/profile
+
+
+
 useradd es
 chown -R es:es /usr/local/elasticsearch
 

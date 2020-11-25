@@ -40,6 +40,7 @@ hwclock -w
 cat <<EOF> ~/.bashrc
 alias cls="clear"
 alias ll='ls -hl --time-style "+%Y/%m/%d %H:%M"'
+alias grep='grep --color'
 
 PS1="[\u@\h \W]\\$ "
 

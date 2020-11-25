@@ -5,6 +5,8 @@ wget -P /usr/local/src -N http://cdn.ai-brain.cn/bin/java/java.tar.gz
 tar --no-same-owner -zxvf /usr/local/src/java.tar.gz -C /usr/local
 
 # 配置环境变量
+# 现将原来有关配置删除，然后添加，重复执行不会重复添加以下内容
+sed -i '/JAVA_HOME/d' /etc/profile
 echo 'export JAVA_HOME=/usr/local/java' >> /etc/profile
 echo 'export JRE_HOME=${JAVA_HOME}/jre' >> /etc/profile
 echo 'export CLASSPATH=.:${JAVA_HOME}/lib:${JRE_HOME}/lib' >> /etc/profile
