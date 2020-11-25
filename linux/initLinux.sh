@@ -36,22 +36,22 @@ ntpdate -u cn.pool.ntp.org
 hwclock -w
 
 # ——————————————————————————shell快捷键——————————————————————————
-# 将个人shell配置重写，如果全局文件存在，则引入全局配置
-cat <<EOF> ~/.bashrc
+# 在全局文件修改，所有用户都生效
+sed -i '/PS1/d' /etc/bashrc
+sed -i '/alias cls/d' /etc/bashrc
+sed -i '/alias ll/d' /etc/bashrc
+sed -i '/alias grep/d' /etc/bashrc
+cat <<EOF>> /etc/bashrc
+PS1="[\u@\h \W]\\$ "
 alias cls="clear"
 alias ll='ls -hl --time-style "+%Y/%m/%d %H:%M"'
 alias grep='grep --color'
-
-PS1="[\u@\h \W]\\$ "
-
-if [ -f /etc/bashrc ]; then
-  . /etc/bashrc
-fi
 EOF
 
 # 修改tab键智能补齐（按TAB可自由切换）
-cat <<EOF> ~/.inputrc
-set show-all-if-ambiguous on
+sed -i '/completion-ignore-case/d' /etc/bashrc
+sed -i '/menu-complete/d' /etc/bashrc
+cat <<EOF>> ~/.inputrc
 set completion-ignore-case on
 TAB: menu-complete
 EOF
