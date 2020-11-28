@@ -5,9 +5,9 @@
 # tar --no-same-owner -zxvf /usr/local/src/kafka.tar.gz -C /usr/local
 
 # 配置环境变量
-sed -i '/HANDOOP_HOME/d' /etc/profile
-echo 'export HANDOOP_HOME=/usr/local/handoop' >> /etc/profile
-echo 'export PATH=${HANDOOP_HOME}/bin:$PATH' >> /etc/profile
+sed -i '/HADOOP_HOME/d' /etc/profile
+echo 'export HADOOP_HOME=/usr/local/hadoop' >> /etc/profile
+echo 'export PATH=${HADOOP_HOME}/bin:$PATH' >> /etc/profile
 
 
 # 刷新环境变量
