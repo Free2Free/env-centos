@@ -13,10 +13,10 @@ EOF
 source /etc/profile
 
 # 新建存放数据文件夹
-mkdir ${HANDOOP_HOME}/data
+mkdir ${HADOOP_HOME}/data
 
 # 修改配置文件core-site.xml
-cat <<EOF> ${HANDOOP_HOME}/etc/hadoop/core-site.xml 
+cat <<EOF> ${HADOOP_HOME}/etc/hadoop/core-site.xml 
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
 
@@ -35,8 +35,8 @@ cat <<EOF> ${HANDOOP_HOME}/etc/hadoop/core-site.xml
 EOF
 
 # hadoop环境指定jdk路径hadoop-env.sh
-sed -i '/JAVA_HOME/d' ${HANDOOP_HOME}/etc/hadoop/hadoop-env.sh
-echo 'export JAVA_HOME=${JAVA_HOME}' >> ${HANDOOP_HOME}/etc/hadoop/hadoop-env.sh
+sed -i '/JAVA_HOME/d' ${HADOOP_HOME}/etc/hadoop/hadoop-env.sh
+echo 'export JAVA_HOME=${JAVA_HOME}' >> ${HADOOP_HOME}/etc/hadoop/hadoop-env.sh
 
 
 # 配置数据结点参数hdfs-site.xml
