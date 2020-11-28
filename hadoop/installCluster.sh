@@ -15,10 +15,28 @@ source /etc/profile
 # 新建存放数据文件夹
 mkdir ${HANDOOP_HOME}/data
 
+# 修改配置文件core-site.xml
+cat <<EOF> ${HANDOOP_HOME}/etc/hadoop/core-site.xml 
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
 
-
-cat <<EOF>> ${KAFKA_HOME}/config/server.properties
-host.name: ${HOSTNAME}
-broker.id=${tmp}
-zookeeper.connect=node01:2181,node02:2181,node03:2181
+<configuration>
+  <!-- 指定hdfs namenode地址 -->
+  <property>
+    <name>fs.defaultFS</name>
+    <value>hdfs://hnode01:9000</value>
+  </property>
+  <!-- 指定运行时产生文件的目录 -->
+  <property>
+    <name>hadoop.tmp.dir</name>
+    <value>/usr/local/hadoop/data</value>
+  </property>
+</configuration>
 EOF
+
+# hadoop环境指定jdk路径hadoop-env.sh
+sed -i '/JAVA_HOME/d' ${HANDOOP_HOME}/etc/hadoop/hadoop-env.sh
+echo 'export JAVA_HOME=${JAVA_HOME}' >> ${HANDOOP_HOME}/etc/hadoop/hadoop-env.sh
+
+
+# 配置数据结点参数hdfs-site.xml
