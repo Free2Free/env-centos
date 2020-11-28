@@ -41,11 +41,13 @@ sed -i '/PS1/d' /etc/bashrc
 sed -i '/alias cls/d' /etc/bashrc
 sed -i '/alias ll/d' /etc/bashrc
 sed -i '/alias grep/d' /etc/bashrc
+sed -i '/alias tree/d' /etc/bashrc
 cat <<EOF>> /etc/bashrc
 PS1="[\u@\h \W]\\$ "
 alias cls="clear"
 alias ll='ls -hl --time-style "+%Y/%m/%d %H:%M"'
 alias grep='grep --color'
+alias tree='tree -C'
 EOF
 
 # 修改tab键智能补齐（按TAB可自由切换）
