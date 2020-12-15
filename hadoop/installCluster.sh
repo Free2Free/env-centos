@@ -15,6 +15,9 @@ source /etc/profile
 # 新建存放数据文件夹
 mkdir ${HADOOP_HOME}/data
 
+# 删除可能残余文件
+rm -rf data/ logs/
+
 # 修改配置文件core-site.xml
 cat <<EOF> ${HADOOP_HOME}/etc/hadoop/core-site.xml 
 <?xml version="1.0" encoding="UTF-8"?>
