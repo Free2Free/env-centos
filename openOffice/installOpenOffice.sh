@@ -30,8 +30,8 @@ wget -P /usr/local/src -N http://cdn.ai-brain.cn/bin/jodconverter/jodconverter.t
 # 解压文件
 tar --no-same-owner -zxvf /usr/local/src/jodconverter.tar.gz -C /usr/local
 
-# 配置环境变量
-sed -i '/JODC_HOME/d' /etc/profile
-echo 'export JODC_HOME=/usr/local/git' >> /etc/profile
-echo 'export PATH=${JODC_HOME}:$PATH' >> /etc/profile
-source /etc/profile
+# 添加快捷键别名（通过快捷键jodconverter提高转化效率）
+sed -i '/alias jodconverter/d' /etc/bashrc
+cat <<EOF> /etc/bashrc
+alias jodconverter='java -jar /usr/local/jodconverter/jodconverter-cli-2.2.2.jar'
+EOF
