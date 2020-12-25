@@ -20,9 +20,10 @@ cat <<EOF> /etc/hosts
 192.168.3.172 slaver
 EOF
 
-# 向配置文件添加后台启动配置
-sed -i '/daemonize yes/d' /etc/profile
 mkdir ${REDIS_HOME}/conf
+# 向配置文件添加后台启动配置
+sed -i '/daemonize yes/d' ${REDIS_HOME}/conf/redis.conf
+
 echo 'daemonize yes' >> ${REDIS_HOME}/conf/redis.conf
 
 cat <<EOF> /usr/lib/systemd/system/redis.service
@@ -40,7 +41,6 @@ ExecStop=/bin/kill -SIGINT $MAINPID
 [Install]
 WantedBy=multi-user.target
 EOF
-
 
 # 刷新环境变量
 source /etc/profile
