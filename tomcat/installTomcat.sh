@@ -25,3 +25,5 @@ ExecStop=/bin/kill -SIGINT $MAINPID
 [Install]
 WantedBy=multi-user.target
 EOF
+
+systemctl enable tomcat
