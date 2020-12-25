@@ -42,5 +42,7 @@ ExecStop=/bin/kill -SIGINT $MAINPID
 WantedBy=multi-user.target
 EOF
 
+systemctl enable redis
+
 # 刷新环境变量
 source /etc/profile
