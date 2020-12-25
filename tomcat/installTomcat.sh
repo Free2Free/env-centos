@@ -10,6 +10,18 @@ echo 'export TOMCAT_HOME=/usr/local/tomcat' >> /etc/profile
 echo 'export PATH=${TOMCAT_HOME}/bin:$PATH' >> /etc/profile
 source /etc/profile
 
+cat <<EOF> /usr/lib/systemd/system/tomcat.service
+[Unit]
+Description=Tomcat Server Manager
+After=syslog.target network.target
 
-# 刷新环境变量
-source /etc/profile
+[Service]
+Type=forking
+PIDFile=/var/run/tomcat.pid
+ExecStart=/usr/local/tomcat/bin/startup.sh
+ExecReload=/bin/kill -USR2 $MAINPID
+ExecStop=/bin/kill -SIGINT $MAINPID
+
+[Install]
+WantedBy=multi-user.target
+EOF
