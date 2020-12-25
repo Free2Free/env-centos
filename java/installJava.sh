@@ -3,7 +3,7 @@
 wget -P /usr/local/src -N http://cdn.ai-brain.cn/bin/jdk/jdk8.tar.gz
 # 解压文件
 tar --no-same-owner -zxvf /usr/local/src/jdk8.tar.gz -C /usr/local
-mv /usr/local/jdk8 /usr/local/java
+mv -f /usr/local/jdk8 /usr/local/java
 
 # 配置环境变量
 # 现将原来有关配置删除，然后添加，重复执行不会重复添加以下内容
