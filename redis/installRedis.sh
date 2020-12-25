@@ -22,7 +22,24 @@ EOF
 
 # 向配置文件添加后台启动配置
 sed -i '/daemonize yes/d' /etc/profile
+mkdir ${REDIS_HOME}/conf
 echo 'daemonize yes' >> ${REDIS_HOME}/conf/redis.conf
+
+cat <<EOF> /usr/lib/systemd/system/redis.service
+[Unit]
+Description=Redis Server Manager
+After=syslog.target network.target
+
+[Service]
+Type=forking
+PIDFile=/var/run/redis_6379.pid
+ExecStart=/usr/local/redis/bin/redis-server /usr/local/redis/conf/redis.conf
+ExecReload=/bin/kill -USR2 $MAINPID
+ExecStop=/bin/kill -SIGINT $MAINPID
+
+[Install]
+WantedBy=multi-user.target
+EOF
 
 
 # 刷新环境变量
