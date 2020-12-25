@@ -5,10 +5,9 @@ wget -P /usr/local/src -N http://cdn.ai-brain.cn/bin/nacos/nacos.tar.gz
 tar --no-same-owner -zxvf /usr/local/src/nacos.tar.gz -C /usr/local
 
 # # 配置环境变量
-# sed -i '/NACOS_HOME/d' /etc/profile
-# echo 'export NACOS_HOME=/usr/local/nacos' >> /etc/profile
-# echo 'export PATH=${NACOS_HOME}/bin:$PATH' >> /etc/profile
-# source /etc/profile
+sed -i '/NACOS_HOME/d' /etc/profile
+echo 'export NACOS_HOME=/usr/local/nacos' >> /etc/profile
+source /etc/profile
 
 # 注册为系统服务
 cat <<EOF> /usr/lib/systemd/system/nacos.service
@@ -27,5 +26,7 @@ ExecStop=/usr/local/nacos/bin/shutdown.sh
 [Install]
 WantedBy=multi-user.target
 EOF
+
+ln -s ${JAVA_HOME}/bin/javac /usr/local/bin/javac
 
 systemctl enable nacos
