@@ -20,7 +20,7 @@ cat <<EOF> /etc/hosts
 192.168.3.172 slaver
 EOF
 
-mkdir ${REDIS_HOME}/conf
+# mkdir ${REDIS_HOME}/conf
 # 向配置文件添加后台启动配置
 sed -i '/daemonize yes/d' ${REDIS_HOME}/conf/redis.conf
 
