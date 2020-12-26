@@ -6,14 +6,19 @@ tar --no-same-owner -zxvf /usr/local/src/rabbitMQ.tar.gz -C /usr/local
 
 # 配置环境变量
 sed -i '/RABBITMQ/d' /etc/profile
-echo 'export RABBITMQ=/usr/local/rabbitMQ' >> /etc/profile
-echo 'export PATH=${RABBITMQ}/bin:$PATH' >> /etc/profile
+echo 'export RABBITMQ=/usr/local/rabbitmq' >> /etc/profile
+echo 'export PATH=${RABBITMQ}/sbin:$PATH' >> /etc/profile
 
 sed -i '/erlang/d' /etc/profile
 echo 'export PATH=/usr/local/erlang/bin:$PATH' >> /etc/profile
 
+# ln -sf /usr/local/erlang/bin/erl /usr/local/bin/erl
+
 # 刷新环境变量
 source /etc/profile
+
+# 停用图形化界面
+rabbitmq-plugins disable rabbitmq_management
 
 # cat <<EOF> /usr/lib/systemd/system/rabbitMQ.service
 # [Unit]
@@ -21,15 +26,12 @@ source /etc/profile
 # After=syslog.target network.target
 
 # [Service]
-# Type=forking
-# PIDFile=/var/run/redis_6379.pid
-# ExecStart=/usr/local/rabbitMQ/bin/rabbitMQ-server /usr/local/rabbitMQ/conf/rabbitMQ.conf
-# ExecReload=/bin/kill -USR2 $MAINPID
-# ExecStop=/bin/kill -SIGINT $MAINPID
+# ExecStart=/usr/local/rabbitmq/sbin/rabbitmq-server
+# ExecStop=/usr/local/rabbitmq/sbin/rabbitmqctl shutdown
 
 # [Install]
 # WantedBy=multi-user.target
 # EOF
 
-# systemctl enable redis
+# systemctl enable rabbitMQ
 
