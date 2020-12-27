@@ -24,6 +24,9 @@ nodaemon=false
 minfds=1024
 minprocs=200
 
+[rpcinterface:supervisor]
+supervisor.rpcinterface_factory = supervisor.rpcinterface:make_main_rpcinterface
+
 [supervisorctl]
 serverurl=unix:///var/run/supervisor/supervisor.sock
 
