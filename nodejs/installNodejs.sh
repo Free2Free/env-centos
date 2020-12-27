@@ -1,8 +1,10 @@
 #! bin/bash
-# 下载自定义Java安装包
-wget -P /usr/local/src -N http://cdn.ai-brain.cn/bin/nodejs/nodejs.tar.gz
+# tar压缩文件有丢失，因此采用zip压缩
+wget -P /usr/local/src -N http://cdn.ai-brain.cn/bin/nodejs/nodejs.zip
+yum install unzip -y
 # 解压文件
-tar --no-same-owner -zxvf /usr/local/src/nodejs.tar.gz -C /usr/local
+unzip -o /usr/local/src/nodejs.zip -d /usr/local
+yum remove unzip -y
 
 # 配置环境变量
 sed -i '/NODEJS_HOME/d' /etc/profile
