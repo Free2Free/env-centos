@@ -27,6 +27,6 @@ ExecStop=/usr/local/nacos/bin/shutdown.sh
 WantedBy=multi-user.target
 EOF
 
-ln -s ${JAVA_HOME}/bin/javac /usr/local/bin/javac
+ln -sf ${JAVA_HOME}/bin/javac /usr/local/bin/javac
 
 systemctl enable nacos
