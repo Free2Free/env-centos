@@ -58,6 +58,7 @@ redirect_stderr=true
 ;stdout_logfile=/usr/local/nginx/logs/access.log
 ;stderr_logfile=/usr/local/nginx/logs/error.log
 EOF
+
 supervisorctl restart ruoyi-visual
 
 
@@ -92,6 +93,9 @@ redirect_stderr=true
 ;stderr_logfile=/usr/local/nginx/logs/error.log
 EOF
 supervisorctl restart ruoyi-gen
+
+# 如果有新增的兄弟子进程加入，使用此命令即可刷新（已启动的不受影响）
+supervisorctl update
 
 
 
