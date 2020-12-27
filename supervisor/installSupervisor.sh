@@ -24,6 +24,9 @@ nodaemon=false
 minfds=1024
 minprocs=200
 
+[supervisorctl]
+serverurl=unix:///var/run/supervisor/supervisor.sock
+
 [include]
 files = supervisord.d/*.ini
 EOF
