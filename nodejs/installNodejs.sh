@@ -7,7 +7,7 @@ tar --no-same-owner -zxvf /usr/local/src/nodejs.tar.gz -C /usr/local
 # 配置环境变量
 sed -i '/NODEJS_HOME/d' /etc/profile
 echo 'export NODEJS_HOME=/usr/local/nodejs' >> /etc/profile
-echo 'export PATH=${NODEJS_HOME}/sbin:$PATH' >> /etc/profile
+echo 'export PATH=${NODEJS_HOME}/bin:$PATH' >> /etc/profile
 source /etc/profile
 
 
