@@ -18,7 +18,7 @@ ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 ln -sf /usr/bin/systemctl /usr/local/bin/sctl
 
 # 安装常用工具
-yum install -y wget vim net-tools bash-completion lsof ntp
+yum install -y wget vim net-tools bash-completion lsof ntp openssl-devel
 
 # 登陆欢迎语
 cat <<EOF> /etc/motd
