@@ -4,7 +4,7 @@ cat <<EOF> /etc/supervisord.d/nacos.ini
 command=/usr/local/nacos/bin/startup.sh
 autostart=true
 autorestart=true
-startsecs=5
+startsecs=8
 startretries=3
 redirect_stderr=true
 ;stdout_logfile=/usr/local/nginx/logs/access.log
