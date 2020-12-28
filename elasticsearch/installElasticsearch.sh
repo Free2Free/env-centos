@@ -17,6 +17,9 @@ sed -i '/ES_HOME/d' /etc/profile
 echo 'export ES_HOME=/usr/local/elasticsearch' >> /etc/profile
 echo 'export PATH=${ES_HOME}/bin:$PATH' >> /etc/profile
 
+# 刷新环境变量
+source /etc/profile
+
 
 grep "^vm.max_map_count" /etc/sysctl.conf;
 if (( $? > 0 ))
@@ -54,7 +57,7 @@ fi
 EOF
 
 # 创建快捷软连接
-ln -sf ${ES_HOME}/bin/elasticsearch es
+ln -sf ${ES_HOME}/bin/elasticsearch ${ES_HOME}/bin/es
 
 # 刷新环境变量
 source /etc/profile
