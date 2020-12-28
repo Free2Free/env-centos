@@ -25,9 +25,11 @@ sed -i '/vm.max_map_count/d' /etc/sysctl.conf;
 echo "vm.max_map_count=262144" >> /etc/sysctl.conf
 sysctl -p
 
-
-echo '* soft nofile 65536' > /etc/security/limits.conf
-echo '* hard nofile 65536' > /etc/security/limits.conf
+cat <<EOF> /etc/security/limits.conf
+* soft nofile 65536
+* hard nofile 65536
+EOF
+sysctl -p
 
 
 # 创建ES专属用户(此语句可重复执行)

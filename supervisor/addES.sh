@@ -4,7 +4,7 @@ cat <<EOF> /etc/supervisord.d/es.ini
 command=/usr/local/elasticsearch/bin/elasticsearch -Enetwork.host=127.0.0.1
 user=es
 password=es.123.456
-umask=664
+umask=002
 autostart=true
 autorestart=true
 startsecs=8

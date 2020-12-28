@@ -1,5 +1,6 @@
 #! bin/bash
 yum install -y epel-release
+yum remove -y supervisor
 yum install -y supervisor
 
 # 备份配置文件，新增个性化配置（无配置则使用默认配置）
@@ -23,8 +24,8 @@ logfile_backups=10
 loglevel=info
 pidfile=/var/run/supervisord.pid
 nodaemon=false
-minfds=65535
-minprocs=4096
+minfds=1024
+minprocs=200
 
 [rpcinterface:supervisor]
 supervisor.rpcinterface_factory = supervisor.rpcinterface:make_main_rpcinterface
