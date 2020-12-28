@@ -3,6 +3,7 @@ cat <<EOF> /etc/supervisord.d/es.ini
 [program:es]
 command=/usr/local/elasticsearch/bin/elasticsearch
 user=es
+umask=664
 autostart=true
 autorestart=true
 startsecs=5
@@ -13,4 +14,5 @@ priority=100
 ;stderr_logfile=/usr/local/nginx/logs/error.log
 EOF
 # systemctl restart supervisord
+supervisorctl update
 supervisorctl restart es
