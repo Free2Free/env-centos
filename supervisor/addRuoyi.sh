@@ -8,6 +8,7 @@ autorestart=true
 startsecs=5
 startretries=3
 redirect_stderr=true
+priority=10
 ;stdout_logfile=/usr/local/nginx/logs/access.log
 ;stderr_logfile=/usr/local/nginx/logs/error.log
 EOF
@@ -23,6 +24,7 @@ autorestart=true
 startsecs=5
 startretries=3
 redirect_stderr=true
+priority=10
 ;stdout_logfile=/usr/local/nginx/logs/access.log
 ;stderr_logfile=/usr/local/nginx/logs/error.log
 EOF
@@ -38,6 +40,7 @@ autostart=true
 autorestart=true
 startsecs=5
 startretries=3
+priority=10
 redirect_stderr=true
 ;stdout_logfile=/usr/local/nginx/logs/access.log
 ;stderr_logfile=/usr/local/nginx/logs/error.log

@@ -12,6 +12,7 @@ echo 'export NODEJS_HOME=/usr/local/nodejs' >> /etc/profile
 echo 'export PATH=${NODEJS_HOME}/bin:$PATH' >> /etc/profile
 source /etc/profile
 
-
+# 设置淘宝镜像源
+${NODEJS_HOME}/bin/npm config set registry http://registry.npm.taobao.org
 # 刷新环境变量
 source /etc/profile
