@@ -12,4 +12,5 @@ stderr_logfile=/usr/local/nginx/logs/error.log
 EOF
 
 # systemctl restart supervisord
+systemctl disable nginx
 supervisorctl restart nginx

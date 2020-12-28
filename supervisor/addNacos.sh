@@ -11,4 +11,5 @@ redirect_stderr=true
 ;stderr_logfile=/usr/local/nginx/logs/error.log
 EOF
 # systemctl restart supervisord
+systemctl disable nacos
 supervisorctl restart nacos

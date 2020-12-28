@@ -12,4 +12,5 @@ redirect_stderr=true
 EOF
 
 # systemctl restart supervisord
+systemctl disable redis
 supervisorctl restart redis
