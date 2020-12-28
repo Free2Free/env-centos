@@ -10,6 +10,14 @@ echo 'export PYTHON_HOME=/usr/local/python' >> /etc/profile
 echo 'export PATH=${PYTHON_HOME}/bin:$PATH' >> /etc/profile
 source /etc/profile
 
+# 设置pip国内源
+cat <<EOF> ~/.pip/pip.conf
+[global]
+index-url = http://mirrors.aliyun.com/pypi/simple
+
+[install]
+trusted-host=mirrors.aliyun.com
+EOF
 
 # 刷新环境变量
 source /etc/profile
