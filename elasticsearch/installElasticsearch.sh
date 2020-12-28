@@ -18,10 +18,6 @@ echo 'export ES_HOME=/usr/local/elasticsearch' >> /etc/profile
 echo 'export PATH=${ES_HOME}/bin:$PATH' >> /etc/profile
 
 
-
-useradd es
-chown -R es:es /usr/local/elasticsearch
-
 grep "^vm.max_map_count" /etc/sysctl.conf;
 if (( $? > 0 ))
 then
@@ -39,7 +35,7 @@ fi
 # 创建ES专属用户(此语句可重复执行)
 useradd -g root es
 echo "es.123.456"| passwd es --stdin
-chown -R es:root ${ES_HOME}
+chown -R es:root /usr/local/elasticsearch
 
 # 添加快捷启动脚本
 cat <<EOF> ${ES_HOME}/bin/startup.sh

@@ -23,8 +23,8 @@ logfile_backups=10
 loglevel=info
 pidfile=/var/run/supervisord.pid
 nodaemon=false
-minfds=1024
-minprocs=200
+minfds=65535
+minprocs=4096
 
 [rpcinterface:supervisor]
 supervisor.rpcinterface_factory = supervisor.rpcinterface:make_main_rpcinterface

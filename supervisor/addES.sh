@@ -3,6 +3,7 @@ cat <<EOF> /etc/supervisord.d/es.ini
 [program:es]
 command=/usr/local/elasticsearch/bin/elasticsearch
 user=es
+password=es.123.456
 umask=664
 autostart=true
 autorestart=true
