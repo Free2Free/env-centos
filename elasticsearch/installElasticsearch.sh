@@ -21,19 +21,14 @@ echo 'export PATH=${ES_HOME}/bin:$PATH' >> /etc/profile
 source /etc/profile
 
 
-grep "^vm.max_map_count" /etc/sysctl.conf;
-if (( $? > 0 ))
-then
-	echo "vm.max_map_count=262144" >> /etc/sysctl.conf
-	sysctl -p
-fi
+sed -i '/vm.max_map_count/d' /etc/sysctl.conf;
+echo "vm.max_map_count=262144" >> /etc/sysctl.conf
+sysctl -p
 
-grep "^* soft nofile" /etc/sysctl.conf;
-if (( $? > 0 ))
-then
-	echo '* soft nofile 65536' > /etc/security/limits.conf
-	echo '* hard nofile 65536' > /etc/security/limits.conf
-fi
+
+echo '* soft nofile 65536' > /etc/security/limits.conf
+echo '* hard nofile 65536' > /etc/security/limits.conf
+
 
 # 创建ES专属用户(此语句可重复执行)
 useradd -g root es
