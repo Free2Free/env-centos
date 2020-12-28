@@ -15,5 +15,5 @@ priority=100
 ;stderr_logfile=/usr/local/nginx/logs/error.log
 EOF
 # systemctl restart supervisord
-supervisorctl update
+
 supervisorctl restart es
