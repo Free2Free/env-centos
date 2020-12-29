@@ -2,7 +2,7 @@
 
 cat <<EOF> /etc/supervisord.d/jenkins.ini
 [program:jenkins]
-command=/usr/local/jenkins/catalina.sh run
+command=/usr/local/jenkins/bin/catalina.sh run
 autostart=true
 autorestart=true
 startsecs=8
