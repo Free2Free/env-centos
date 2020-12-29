@@ -1,4 +1,4 @@
-```#! bin/bash
+#! bin/bash
 # 下载自定义Java安装包
 wget -P /usr/local/src -N http://cdn.ai-brain.cn/bin/mongodb/mongodb.tar.gz
 # 解压文件
