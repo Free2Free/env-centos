@@ -1,14 +1,8 @@
 #! bin/bash
 
-if [ ! -d "/usr/local/jenkins" ];then
-mkdir -p /usr/local/jenkins
-fi
-
-wget -P /usr/local/jenkins -N http://cdn.ai-brain.cn/bin/jenkins/jenkins.war
-
 cat <<EOF> /etc/supervisord.d/jenkins.ini
 [program:jenkins]
-command=/usr/local/java/bin/java -jar /usr/local/jenkins/jenkins.war --httpPort=2222
+command=/usr/local/jenkins/catalina.sh run
 autostart=true
 autorestart=true
 startsecs=8
