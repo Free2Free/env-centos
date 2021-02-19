@@ -9,7 +9,7 @@ rpm -ivh /tmp/openOffice/RPMS/*.rpm
 rpm -ivh /tmp/openOffice/RPMS/desktop-integration/openoffice4.1.8-redhat-menus-4.1.8-9803.noarch.rpm
 
 # 创建软连接快捷键
-ln -s /opt/openoffice4/program/soffice /usr/local/bin/soffice
+ln -fs /opt/openoffice4/program/soffice /usr/local/bin/soffice
 
 yum install libXext.x86_64 -y
 
