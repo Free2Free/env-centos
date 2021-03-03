@@ -38,11 +38,13 @@ sed -i '/PS1/d' /etc/bashrc
 sed -i '/alias ll/d' /etc/bashrc
 sed -i '/alias grep/d' /etc/bashrc
 sed -i '/alias tree/d' /etc/bashrc
+sed -i '/export EDITOR/d' /etc/bashrc
 cat <<EOF> /etc/bashrc
 PS1="[\u@\h \W]\\$ "
 alias ll='ls -hl --time-style "+%Y/%m/%d %H:%M"'
 alias grep='grep --color'
 alias tree='tree -C'
+export EDITOR=/usr/bin/vim
 EOF
 
 # 修改tab键智能补齐（按TAB可自由切换）
