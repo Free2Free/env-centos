@@ -8,7 +8,7 @@ systemctl stop firewalld
 # 取消开机自启
 systemctl disable firewalld
 
-# 虚拟内存
+# 关闭虚拟内存
 swapoff -a
 
 # 设置时区
@@ -27,9 +27,6 @@ Welcome to CentOS 7 !
 
 EOF
 
-#由于经常需要配置网关，因此将网络配置文件路径添加到环境变量中
-export NET_HOME=/etc/sysconfig/network-scripts
-
 # 同步服务器时间
 ntpdate -u cn.pool.ntp.org
 # 将时间写入硬件
@@ -38,13 +35,11 @@ hwclock -w
 # ——————————————————————————shell快捷键——————————————————————————
 # 在全局文件修改，所有用户都生效
 sed -i '/PS1/d' /etc/bashrc
-sed -i '/alias cls/d' /etc/bashrc
 sed -i '/alias ll/d' /etc/bashrc
 sed -i '/alias grep/d' /etc/bashrc
 sed -i '/alias tree/d' /etc/bashrc
 cat <<EOF> /etc/bashrc
 PS1="[\u@\h \W]\\$ "
-alias cls="clear"
 alias ll='ls -hl --time-style "+%Y/%m/%d %H:%M"'
 alias grep='grep --color'
 alias tree='tree -C'
@@ -56,12 +51,6 @@ sed -i '/menu-complete/d' /etc/inputrc
 cat <<EOF>> /etc/inputrc
 set completion-ignore-case on
 TAB: menu-complete
-EOF
-
-# 用户退出ssh后执行清屏指令
-cat <<EOF> ~/.bash_logout 
-# ~/.bash_logout
-clear
 EOF
 
 
