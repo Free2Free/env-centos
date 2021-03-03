@@ -12,5 +12,6 @@ stderr_logfile=/usr/local/nginx/logs/error.log
 EOF
 
 # systemctl restart supervisord
+# 关闭Nginx服务开机自启，避免与supervisor服务冲突
 systemctl disable nginx
 supervisorctl restart nginx
