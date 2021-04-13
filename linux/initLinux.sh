@@ -1,7 +1,7 @@
 #! bin/bash
 
 # 升级内核版本(-y表示自动安装不需要手动确认)
-yum update kernel -y 
+yum update kernel -y
 
 # 关闭防火墙
 systemctl stop firewalld
@@ -21,7 +21,7 @@ ln -sf /usr/bin/systemctl /usr/local/bin/sctl
 yum install -y wget vim net-tools bash-completion lsof ntp openssl-devel
 
 # 登陆欢迎语
-cat <<EOF> /etc/motd
+cat <<EOF >/etc/motd
 
 Welcome to CentOS 7 !
 
@@ -34,31 +34,18 @@ hwclock -w
 
 # ——————————————————————————shell快捷键——————————————————————————
 # 在全局文件修改，所有用户都生效
-sed -i '/PS1/d' /etc/bashrc
-sed -i '/alias ll/d' /etc/bashrc
-sed -i '/alias grep/d' /etc/bashrc
-sed -i '/alias tree/d' /etc/bashrc
-sed -i '/export EDITOR/d' /etc/bashrc
-cat <<EOF> /etc/bashrc
-PS1="[\u@\h \W]\\$ "
-alias ll='ls -hl --time-style "+%Y/%m/%d %H:%M"'
-alias grep='grep --color'
-alias tree='tree -C'
-export EDITOR=/usr/bin/vim
-EOF
+ln -f /usr/bin/clear /usr/local/bin/cls
 
 # 修改tab键智能补齐（按TAB可自由切换）
 sed -i '/completion-ignore-case/d' /etc/inputrc
 sed -i '/menu-complete/d' /etc/inputrc
-cat <<EOF>> /etc/inputrc
+cat <<EOF >>/etc/inputrc
 set completion-ignore-case on
 TAB: menu-complete
 EOF
 
-
-
 # 设置本地变量（shell脚本中文乱码、控制台输出中文乱码、vim中文乱码）
-cat <<EOF> /etc/locale.conf
+cat <<EOF >/etc/locale.conf
 LC_ALL=en_US.utf8 
 LC_CTYPE=en_US.utf8 
 LANG=en_US.utf8
