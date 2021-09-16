@@ -1,5 +1,5 @@
 #! bin/bash
-cat <<EOF> /etc/supervisord.d/zk.ini
+cat <<EOF >/etc/supervisord.d/zk.ini
 [program:zk]
 command=/usr/local/zookeeper/bin/zkServer.sh start-foreground
 autostart=true

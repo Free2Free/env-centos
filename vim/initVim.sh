@@ -2,7 +2,7 @@
 
 # ——————————————————————————shell快捷键——————————————————————————
 # 将个人shell配置重写，如果全局文件存在，则引入全局配置
-cat <<EOF> ~/.vimrc
+cat <<EOF >~/.vimrc
 set nu "显示行号
 set ruler
 set scrolloff=3   " 光标移动到buffer的顶部和底部时保持3行距离 
@@ -13,7 +13,7 @@ set guifont=Consolas:h12:cANSI "英文字体
 set guifontwide=SimSun-ExtB:h12:cGB2312 "设置文字宽度
 set tabstop=4 "表示Tab代表4个空格的宽度
 set expandtab "表示Tab自动转换成空格（不推荐代码中包含制表符）
-set autoindent "表示换行后自动缩进
+set noautoindent "表示换行后自动缩进
 set autoread "当文件在外部被修改时，自动重新读取
 set history=400 "vim记住的历史操作的数量，默认的是20
 set nocompatible "使用vim自己的键盘模式,而不是兼容vi的模式

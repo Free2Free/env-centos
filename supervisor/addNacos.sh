@@ -1,5 +1,5 @@
 #! bin/bash
-cat <<EOF> /etc/supervisord.d/nacos.ini
+cat <<EOF >/etc/supervisord.d/nacos.ini
 [program:nacos]
 command=/usr/local/nacos/bin/startup.sh
 autostart=true

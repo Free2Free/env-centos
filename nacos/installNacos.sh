@@ -6,11 +6,11 @@ tar --no-same-owner -zxvf /usr/local/src/nacos.tar.gz -C /usr/local
 
 # # 配置环境变量
 sed -i '/NACOS_HOME/d' /etc/profile
-echo 'export NACOS_HOME=/usr/local/nacos' >> /etc/profile
+echo 'export NACOS_HOME=/usr/local/nacos' >>/etc/profile
 source /etc/profile
 
 # 注册为系统服务
-cat <<EOF> /usr/lib/systemd/system/nacos.service
+cat <<EOF >/usr/lib/systemd/system/nacos.service
 [Unit]
 Description=Nacos Server Manager
 After=syslog.target network.target

@@ -1,5 +1,5 @@
 #! bin/bash
-cat <<EOF> /etc/supervisord.d/redis.ini
+cat <<EOF >/etc/supervisord.d/redis.ini
 [program:redis]
 command=/usr/local/redis/bin/redis-server /usr/local/redis/conf/redis.conf --daemonize no
 autostart=true

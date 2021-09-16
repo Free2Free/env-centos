@@ -7,4 +7,3 @@ npm install graceful-fs
 cd /opt/gitbooks
 gitbook fetch
 gitbook init
-

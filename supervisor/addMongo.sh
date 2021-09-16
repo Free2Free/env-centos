@@ -1,5 +1,5 @@
 #! bin/bash
-cat <<EOF> /etc/supervisord.d/mongo.ini
+cat <<EOF >/etc/supervisord.d/mongo.ini
 [program:mongo]
 command=/usr/local/mongo/bin/mongod --config=/usr/local/mongo/conf/config.yml
 autostart=true

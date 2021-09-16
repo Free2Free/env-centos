@@ -1,6 +1,6 @@
 #! bin/bash
 
-cat <<EOF> /etc/supervisord.d/jenkins.ini
+cat <<EOF >/etc/supervisord.d/jenkins.ini
 [program:jenkins]
 command=/usr/local/jenkins/bin/catalina.sh run
 autostart=true

@@ -1,5 +1,5 @@
 #! bin/bash
-cat <<EOF> /etc/supervisord.d/kafka.ini
+cat <<EOF >/etc/supervisord.d/kafka.ini
 [program:kafka]
 command=/usr/local/kafka/bin/kafka-server-start.sh /usr/local/kafka/config/server.properties
 autostart=true

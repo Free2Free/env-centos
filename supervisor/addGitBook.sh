@@ -1,5 +1,5 @@
 #! bin/bash
-cat <<EOF> /etc/supervisord.d/gitbook.ini
+cat <<EOF >/etc/supervisord.d/gitbook.ini
 [program:gitbook]
 command=/usr/bin/gitbook serve
 umask=002

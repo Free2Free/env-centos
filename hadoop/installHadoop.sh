@@ -6,12 +6,11 @@
 
 # 配置环境变量
 sed -i '/HADOOP_HOME/d' /etc/profile
-echo 'export HADOOP_HOME=/usr/local/hadoop' >> /etc/profile
-echo 'export PATH=${HADOOP_HOME}/bin:$PATH' >> /etc/profile
+echo 'export HADOOP_HOME=/usr/local/hadoop' >>/etc/profile
+echo 'export PATH=${HADOOP_HOME}/bin:$PATH' >>/etc/profile
 
 # 删除Windows命令脚本
 rm -rf *.cmd
-
 
 # 刷新环境变量
 source /etc/profile

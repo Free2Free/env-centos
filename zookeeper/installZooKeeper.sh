@@ -6,8 +6,8 @@ tar --no-same-owner -zxvf /usr/local/src/zookeeper.tar.gz -C /usr/local
 
 # 配置环境变量
 sed -i '/ZK_HOME/d' /etc/profile
-echo 'export ZK_HOME=/usr/local/zookeeper' >> /etc/profile
-echo 'export PATH=${ZK_HOME}/bin:$PATH' >> /etc/profile
+echo 'export ZK_HOME=/usr/local/zookeeper' >>/etc/profile
+echo 'export PATH=${ZK_HOME}/bin:$PATH' >>/etc/profile
 
 # 刷新环境变量
 source /etc/profile

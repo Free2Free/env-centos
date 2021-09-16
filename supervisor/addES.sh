@@ -1,5 +1,5 @@
 #! bin/bash
-cat <<EOF> /etc/supervisord.d/es.ini
+cat <<EOF >/etc/supervisord.d/es.ini
 [program:es]
 command=/usr/local/elasticsearch/bin/elasticsearch -Enetwork.host=127.0.0.1
 user=es

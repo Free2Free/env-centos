@@ -8,8 +8,8 @@ yum remove unzip -y
 
 # 配置环境变量
 sed -i '/NODEJS_HOME/d' /etc/profile
-echo 'export NODEJS_HOME=/usr/local/nodejs' >> /etc/profile
-echo 'export PATH=${NODEJS_HOME}/bin:$PATH' >> /etc/profile
+echo 'export NODEJS_HOME=/usr/local/nodejs' >>/etc/profile
+echo 'export PATH=${NODEJS_HOME}/bin:$PATH' >>/etc/profile
 source /etc/profile
 
 # 设置淘宝镜像源

@@ -1,5 +1,5 @@
 #! bin/bash
-cat <<EOF> /etc/supervisord.d/kibana.ini
+cat <<EOF >/etc/supervisord.d/kibana.ini
 [program:kibana]
 command=/usr/local/kibana/bin/kibana -H 0.0.0.0
 autostart=true

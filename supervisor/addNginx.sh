@@ -1,5 +1,5 @@
 #! bin/bash
-cat <<EOF> /etc/supervisord.d/nginx.ini
+cat <<EOF >/etc/supervisord.d/nginx.ini
 [program:nginx]
 command=/usr/local/nginx/sbin/nginx -g 'daemon off;'
 autostart=true
