@@ -17,7 +17,7 @@ source /etc/profile
 
 /usr/local/redis/bin/redis-server /usr/local/redis/conf/ms/redis80.conf --port 6380 --save '' --daemonize yes
 /usr/local/redis/bin/redis-server /usr/local/redis/conf/ms/redis81.conf --port 6381 --save '' --daemonize yes
-/usr/local/redis/bin/redis-server /usr/local/redis/conf/ms/redis82.conf --port 6381 --save '' --daemonize yes
+/usr/local/redis/bin/redis-server /usr/local/redis/conf/ms/redis82.conf --port 6382 --save '' --daemonize yes
 /usr/local/redis/bin/redis-sentinel /usr/local/redis/conf/ms/sentinel280.conf --port 26380 --daemonize yes
 /usr/local/redis/bin/redis-sentinel /usr/local/redis/conf/ms/sentinel281.conf --port 26381 --daemonize yes
 /usr/local/redis/bin/redis-sentinel /usr/local/redis/conf/ms/sentinel282.conf --port 26382 --daemonize yes
