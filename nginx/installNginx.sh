@@ -1,5 +1,5 @@
 #! bin/bash
-# 下载自定义Java安装包
+# 普通版Nginx
 wget -P /usr/local/src -N http://cdn.ai-brain.cn/bin/nginx/nginx.tar.gz
 # 解压文件
 tar --no-same-owner -zxvf /usr/local/src/nginx.tar.gz -C /usr/local
